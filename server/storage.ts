@@ -1,5 +1,6 @@
 import { type User, type InsertUser, type Alarm, type InsertAlarm, type SleepRecord, type InsertSleepRecord, type ChatMessage, type InsertChatMessage } from "@shared/schema";
 import { randomUUID } from "crypto";
+import { mockUser, mockAlarms, mockSleepRecords, mockChatMessages } from "./mockdata";
 
 export interface IStorage {
   // User operations
@@ -38,17 +39,27 @@ export class MemStorage implements IStorage {
     this.alarms = new Map();
     this.sleepRecords = new Map();
     this.chatMessages = new Map();
-    
-    // Create a demo user
-    const demoUser: User = {
-      id: "demo-user",
+    // ใช้ mock data แทน
+    this.users.set(mockUser.id, {
+      ...mockUser,
       username: "demo",
       password: "demo",
       dewdrops: 127,
       sunlight: 89,
       createdAt: new Date(),
-    };
-    this.users.set(demoUser.id, demoUser);
+    });
+    mockAlarms.forEach(alarm => {
+      this.alarms.set(alarm.id, alarm);
+      if (alarm.id >= this.nextAlarmId) this.nextAlarmId = alarm.id + 1;
+    });
+    mockSleepRecords.forEach(record => {
+      this.sleepRecords.set(record.id, record);
+      if (record.id >= this.nextSleepRecordId) this.nextSleepRecordId = record.id + 1;
+    });
+    mockChatMessages.forEach(msg => {
+      this.chatMessages.set(msg.id, msg);
+      if (msg.id >= this.nextChatMessageId) this.nextChatMessageId = msg.id + 1;
+    });
   }
 
   async getUser(id: string): Promise<User | undefined> {
