@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(142, 76%, 36%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(200, 89%, 57%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(25, 95%, 53%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Dream Garden specific colors */
+  --dream-primary-50: hsl(142, 76%, 96%);
+  --dream-primary-100: hsl(142, 76%, 91%);
+  --dream-primary-400: hsl(142, 76%, 56%);
+  --dream-primary-500: hsl(142, 76%, 36%);
+  --dream-primary-600: hsl(142, 76%, 31%);
+  --dream-primary-700: hsl(142, 76%, 26%);
+  
+  --dream-secondary-50: hsl(200, 89%, 97%);
+  --dream-secondary-100: hsl(200, 89%, 94%);
+  --dream-secondary-400: hsl(200, 89%, 67%);
+  --dream-secondary-500: hsl(200, 89%, 57%);
+  --dream-secondary-600: hsl(200, 89%, 47%);
+  --dream-secondary-700: hsl(200, 89%, 37%);
+
+  --dream-accent-100: hsl(25, 95%, 93%);
+  --dream-accent-400: hsl(25, 95%, 63%);
+  --dream-accent-500: hsl(25, 95%, 53%);
+  --dream-accent-600: hsl(25, 95%, 43%);
+  --dream-accent-700: hsl(25, 95%, 33%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(142, 76%, 36%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(200, 89%, 57%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(25, 95%, 53%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .plant-container {
+    background: radial-gradient(circle at center bottom, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  }
+  
+  .dewdrop {
+    background: linear-gradient(135deg, var(--dream-secondary-500) 0%, var(--dream-secondary-600) 100%);
+    border-radius: 100% 0 100% 100% / 100% 0 100% 100%;
+  }
+  
+  .sunlight {
+    background: linear-gradient(135deg, var(--dream-accent-400) 0%, var(--dream-accent-500) 100%);
+  }
+
+  .mobile-container {
+    @apply max-w-sm mx-auto bg-white shadow-2xl min-h-screen relative overflow-hidden;
+  }
+
+  .dream-gradient-primary {
+    background: linear-gradient(135deg, var(--dream-primary-100) 0%, var(--dream-secondary-100) 100%);
+  }
+
+  .dream-gradient-secondary {
+    background: linear-gradient(135deg, var(--dream-secondary-100) 0%, var(--dream-primary-100) 100%);
+  }
+
+  .dream-gradient-accent {
+    background: linear-gradient(135deg, var(--dream-accent-100) 0%, var(--dream-primary-100) 100%);
+  }
+
+  .dream-header-gradient {
+    background: linear-gradient(90deg, var(--dream-primary-500) 0%, var(--dream-secondary-500) 100%);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 1s ease-in-out;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .animate-water-drop {
+    animation: waterDrop 2s ease-in-out;
+  }
+
+  .animate-plant-grow {
+    animation: plantGrow 1.5s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceGentle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes waterDrop {
+  0% { transform: translateY(-100px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100px); opacity: 0; }
+}
+
+@keyframes plantGrow {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
