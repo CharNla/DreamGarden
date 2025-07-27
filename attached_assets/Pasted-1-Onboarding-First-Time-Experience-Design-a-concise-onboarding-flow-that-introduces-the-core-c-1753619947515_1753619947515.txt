@@ -1,0 +1,109 @@
+1. Onboarding / First-Time Experience:
+
+"Design a concise onboarding flow that introduces the core concept: a plant grows with your sleep and mood. Use 2-3 engaging screens with simple illustrations and clear, positive messaging. The final screen should lead directly to the main 'Garden' view or the initial alarm setup."
+
+2. Alarm Setting Screen:
+
+
+
+"Design the 'Alarm Setting' screen.
+
+It should be easy to set and modify wake-up times with a clear time picker (e.g., standard clock picker or a custom scroll wheel).
+
+Include an option to 
+
+add a short note/reminder for the alarm.
+
+The overall design should feel clean and uncluttered, not overwhelming the user before bed.
+
+Tailwind CSS Hint: Use flex for layout, text-primary, bg-secondary for colors, and rounded-lg for button/input styles."
+
+
+3. Daily Wake-Up & Watering Interaction: 
+
+"Design the screen that appears when the alarm rings.
+
+The primary action should be a 
+
+prominent 'Dismiss' button that visually transforms into a 'Water Plant' action when pressed.
+
+An 
+
+engaging, satisfying animation should play upon 'watering,' showing water flowing onto the plant and the plant visibly perking up or shimmering.
+
+The design should encourage immediate interaction to 'water' the plant, making it a positive morning ritual.
+
+Tailwind CSS Hint: Use absolute positioning for overlays, bg-gradient for a calming background, and define custom transition classes for button transformations."
+
+
+4. Sleep Rating & Mood/Dream Journaling Screen: 
+
+"Design the screen immediately following the 'watering' action.
+
+Users should easily be able to 
+
+rate their sleep (1-5 stars) with a clear, interactive star rating component. The stars should animate responsively on touch.
+
+Below the rating, provide an 
+
+optional text input area for journaling feelings or dreams. This input should be spacious and inviting, perhaps with a subtle placeholder text like 'บันทึกความรู้สึกหรือความฝันของคุณ...'.
+
+Include a clear 'Save' or 'Done' button.
+
+Tailwind CSS Hint: Use grid or flex-col for layout, text-center for alignment, border and focus:border-primary for input fields, and shadow-md for rating components."
+
+
+5. Main Garden View / Plant Growth Display: 
+
+"Design the central 'Garden' screen where the digital plant resides.
+
+The plant should be the 
+
+focal point, visually reflecting the user's sleep quality and daily mood.
+
+Show different states of the plant's health (e.g., vibrant/healthy for good sleep, slightly wilted/dull for poor sleep) and its growth over time.
+
+Include clear displays for 
+
+'Dewdrops' (หยาดน้ำค้าง) and 
+
+'Sunlight Energy' (พลังงานแสงอาทิตย์)  at the top or a consistent location, using engaging icons and numerical values.
+
+The background should be serene and changeable (linking to shop items).
+
+Tailwind CSS Hint: Use relative and absolute for layering plant elements, bg-cover for backgrounds, and text-lg font-semibold for currency displays."
+
+
+6. Reef AI Chatbot Interface: 
+
+"Design the chat interface for 'Reef,' the AI sleep assistant.
+
+Reef should have a friendly, approachable visual representation (e.g., a subtle character icon, an empathetic glow, or an abstract but warm presence).
+
+Chat bubbles for Reef's messages and user's messages should be 
+
+visually distinct and easy to read.
+
+Implement 
+
+subtle animations for Reef's responses to make interactions feel more lively and personal.
+
+
+Scenario 1 (Understanding): Design a chat flow where Reef responds empathetically to a user's negative mood/dream entry (e.g., 'ได้ยินว่าเมื่อคืนนอนไม่สบายเลย ไม่เป็นไรนะ วันนี้ลองหาเวลาพักผ่อนดูนะ').
+
+
+Scenario 2 (Data Analysis): Show Reef presenting sleep insights clearly (e.g., 'ผมสังเกตว่าช่วงสัปดาห์ที่ผ่านมา คุณเข้านอนดึกขึ้นและคะแนนการนอนลดลง มีเรื่องกังวลอะไรรึเปล่า?').
+
+
+Scenario 3 (Encouragement): Design Reef providing positive reinforcement for good habits (e.g., 'สุดยอดไปเลย! คุณตื่นตรงเวลามา 5 วันติดแล้วนะ ต้นไม้ของคุณได้รับพลังงานแสงอาทิตย์เต็มๆ เลย').
+
+Tailwind CSS Hint: Use bg-blue-100 for chat bubbles, p-3 for padding, rounded-xl for bubble shapes, and animate-fade-in for subtle text appearance."
+
+
+7. Sleep Diary (สมุดบันทึกการนอน): 
+
+"Design the 'Sleep Diary' screen.
+
+It should be a 
+
+calendar view  that clearly displays an overview of sleep quality for each day (e.g., using color-coded days based on sleep rating, small icons representing stars, or a mini graph).
