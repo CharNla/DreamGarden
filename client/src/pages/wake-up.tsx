@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Droplets, AlarmClockOff } from "lucide-react";
+import { AlarmClock } from "lucide-react";
 
 export default function WakeUp() {
   const [, setLocation] = useLocation();
@@ -60,12 +61,23 @@ export default function WakeUp() {
         >
           {/* Plant illustration */}
           <div className="absolute inset-0 flex items-end justify-center">
-            <motion.div 
-              className="w-32 h-32 bg-gradient-to-t from-[var(--dream-primary-600)] to-[var(--dream-primary-400)] rounded-full opacity-80 flex items-center justify-center"
+            <motion.div
+              className="w-32 h-32 rounded-full bg-gradient-to-t from-[var(--dream-primary-600)] to-[var(--dream-primary-200)] flex items-center justify-center relative"
               animate={showWateringAnimation ? { scale: [1, 1.1, 1] } : {}}
-              transition={{ duration: 1.5, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: 'easeOut' }}
             >
-              <span className="text-4xl">🌱</span>
+              {/* Vibrating alarm clock icon */}
+              <motion.div
+                className="flex items-center justify-center w-full h-full"
+                animate={{ rotate: [-10, 10, -10] }}
+                transition={{ duration: 0.7, repeat: Infinity, repeatType: 'reverse' }}
+              >
+                <AlarmClock className="w-20 h-20 text-white drop-shadow-lg" strokeWidth={2.2} />
+              </motion.div>
+              {/* Soft glow */}
+              <div className="absolute w-32 h-32 rounded-full bg-accent/20 blur-2xl"></div>
+              {/* Subtle shadow for depth */}
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-20 h-6 bg-black/10 rounded-full blur-md"></div>
             </motion.div>
           </div>
 
