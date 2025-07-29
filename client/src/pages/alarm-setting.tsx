@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowLeft } from "lucide-react";
 import { useCreateAlarm } from "@/hooks/use-alarm";
 import { useToast } from "@/hooks/use-toast";
-import TimePicker from "@/components/time-picker";
+import TimePicker from "../components/time-picker";
 import { AlarmTime, DayOfWeek } from "@/types";
 
 export default function AlarmSetting() {
