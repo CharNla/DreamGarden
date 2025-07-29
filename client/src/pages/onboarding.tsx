@@ -36,8 +36,8 @@ export default function Onboarding() {
             <Moon className="w-8 h-8 text-white" />
           </div>
           <div className="w-4 h-1 bg-[var(--dream-primary-300)] rounded-full self-center"></div>
-          <div className="w-16 h-16 bg-[var(--dream-secondary-500)] rounded-full flex items-center justify-center">
-            <Droplets className="w-8 h-8 text-white" />
+          <div className="w-20 h-20 bg-[var(--dream-secondary-500)] rounded-full flex items-center justify-center shadow-lg z-10">
+            <Droplets className="w-10 h-10 text-white" />
           </div>
           <div className="w-4 h-1 bg-[var(--dream-primary-300)] rounded-full self-center"></div>
           <div className="w-16 h-16 bg-[var(--dream-accent-500)] rounded-full flex items-center justify-center">
@@ -67,13 +67,13 @@ export default function Onboarding() {
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={currentScreen}
           className={`absolute inset-0 flex flex-col items-center justify-center p-6 ${currentScreenData.gradient}`}
-          initial={{ opacity: 0, x: 300 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -300 }}
+          initial={{ opacity: 0, scale: 0.98, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          exit={{ opacity: 0, scale: 1.02, filter: 'blur(8px)' }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           <motion.div 
