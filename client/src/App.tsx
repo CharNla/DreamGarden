@@ -11,6 +11,7 @@ import SleepRating from "@/pages/sleep-rating";
 import Garden from "@/pages/garden";
 import Chat from "@/pages/chat";
 import SleepDiary from "@/pages/sleep-diary";
+import Shop from "@/pages/shop";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/garden" component={Garden} />
       <Route path="/chat" component={Chat} />
       <Route path="/sleep-diary" component={SleepDiary} />
+      <Route path="/shop" component={Shop} />
       <Route component={NotFound} />
     </Switch>
   );

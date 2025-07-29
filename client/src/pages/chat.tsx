@@ -4,12 +4,18 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowLeft, Send } from "lucide-react";
+import { Leaf } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { ChatMessage } from "@shared/schema";
 import ChatBubble from "@/components/chat-bubble";
 
 export default function Chat() {
+  // DreamGarden-themed suggestions for Reef AI
+  const suggestions = [
+    "ขอเทคนิคช่วยให้นอนหลับง่ายขึ้น",
+    "แนะนำเพลงหรือเสียงธรรมชาติสำหรับผ่อนคลาย"
+  ];
   const [, setLocation] = useLocation();
   const [message, setMessage] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -84,7 +90,7 @@ export default function Chat() {
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
           >
-            <span className="text-lg">🤖</span>
+            <Leaf className="w-7 h-7 text-green-300" />
           </motion.div>
           <div>
             <h1 className="text-lg font-semibold">Reef AI</h1>
@@ -118,7 +124,7 @@ export default function Chat() {
                 key={msg.id}
                 message={msg.message}
                 isFromUser={msg.isFromUser}
-                timestamp={msg.createdAt}
+                timestamp={msg.createdAt ?? undefined}
               />
             ))}
           </motion.div>
@@ -156,6 +162,35 @@ export default function Chat() {
         )}
         
         <div ref={messagesEndRef} />
+      </div>
+
+
+
+      {/* Bot greeting as first chat bubble, right under topbar */}
+      <div className="bg-white px-4 pt-4 pb-1">
+        <div className="max-w-full">
+          <div className="flex items-start space-x-3 mb-2">
+            <div className="w-8 h-8 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary"><path d="M12 2v4"/><rect width="16" height="10" x="4" y="6" rx="2"/><path d="M8 6V4a4 4 0 0 1 8 0v2"/><path d="M15 10v.01"/><path d="M9 10v.01"/><path d="M8 14a4 4 0 0 0 8 0"/></svg>
+            </div>
+            <div className="bg-gradient-to-br from-[var(--dream-primary-50)] to-[var(--dream-secondary-50)] rounded-xl px-4 py-3 shadow text-gray-800 text-base font-semibold">
+              สวัสดี! 👋 Reef AI พร้อมให้คำปรึกษาเกี่ยวกับการนอนหลับและการผ่อนคลาย หากมีคำถามหรืออยากได้คำแนะนำ กดเลือกข้อความตัวอย่างหรือพิมพ์สอบถามได้เลย
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Suggestions */}
+      <div className="flex flex-wrap gap-2 px-4 py-2 mb-1">
+        {suggestions.map((text, idx) => (
+          <button
+            key={idx}
+            className="bg-gradient-to-br from-[var(--dream-primary-50)] to-[var(--dream-secondary-50)] text-gray-800 text-sm px-4 py-2 rounded-full shadow-sm border border-primary/10 hover:bg-primary/10 transition-colors"
+            onClick={() => setMessage(text)}
+            type="button"
+          >
+            {text}
+          </button>
+        ))}
       </div>
 
       {/* Chat Input */}
