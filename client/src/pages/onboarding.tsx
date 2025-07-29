@@ -36,7 +36,8 @@ export default function Onboarding() {
             <Moon className="w-8 h-8 text-white" />
           </div>
           <div className="w-4 h-1 bg-[var(--dream-primary-300)] rounded-full self-center"></div>
-          <div className="w-20 h-20 bg-[var(--dream-secondary-500)] rounded-full flex items-center justify-center shadow-lg z-10">
+          {/* วงกลมฟ้าสำหรับไอคอนหยดน้ำ */}
+          <div className="w-20 h-20 bg-blue-400 rounded-full flex items-center justify-center z-10">
             <Droplets className="w-10 h-10 text-white" />
           </div>
           <div className="w-4 h-1 bg-[var(--dream-primary-300)] rounded-full self-center"></div>
@@ -83,13 +84,19 @@ export default function Onboarding() {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             {/* Icon */}
-            <motion.div 
-              className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-[var(--dream-primary-400)] to-[var(--dream-primary-600)] rounded-full flex items-center justify-center shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              {currentScreenData.icon}
-            </motion.div>
+            {currentScreen === 2 ? (
+              <motion.div className="w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                {currentScreenData.icon}
+              </motion.div>
+            ) : (
+              <motion.div 
+                className="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-[var(--dream-primary-400)] to-[var(--dream-primary-600)] rounded-full flex items-center justify-center shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                {currentScreenData.icon}
+              </motion.div>
+            )}
 
             {/* Title */}
             <motion.h1 
